@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fouaze Entreprise - Trading Crypto, Création de Jeux, Design & IA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Fouaze Entreprise</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#accueil" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#crypto" class="nav-link">Trading Crypto</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#jeux" class="nav-link">Jeux</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#design" class="nav-link">Design</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#ia" class="nav-link">IA</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <button id="loginBtn" class="btn-login">Connexion</button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>Bienvenue chez Fouaze Entreprise</h1>
+            <p>Votre partenaire de confiance pour le trading crypto, la création de jeux, le design et l'intelligence artificielle</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('services')">Nos Services</button>
+                <button class="btn-secondary" onclick="scrollToSection('contact')">Nous Contacter</button>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>1000+</h3>
+                <p>Clients Satisfaits</p>
+            </div>
+            <div class="stat">
+                <h3>500+</h3>
+                <p>Projets Réalisés</p>
+            </div>
+            <div class="stat">
+                <h3>24/7</h3>
+                <p>Support Client</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Nos Services</h2>
+            <div class="services-grid">
+                <div class="service-card" onclick="showServiceDetails('crypto')">
+                    <div class="service-icon">
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                    <h3>Trading Crypto</h3>
+                    <p>Expertise en trading de cryptomonnaies avec des stratégies avancées et un suivi en temps réel</p>
+                    <button class="btn-service">En savoir plus</button>
+                </div>
+                <div class="service-card" onclick="showServiceDetails('jeux')">
+                    <div class="service-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Création de Jeux</h3>
+                    <p>Développement et vente de jeux vidéo personnalisés pour tous les âges et toutes les plateformes</p>
+                    <button class="btn-service">En savoir plus</button>
+                </div>
+                <div class="service-card" onclick="showServiceDetails('design')">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design de Logos</h3>
+                    <p>Création de logos professionnels et identité visuelle unique pour votre entreprise</p>
+                    <button class="btn-service">En savoir plus</button>
+                </div>
+                <div class="service-card" onclick="showServiceDetails('ia')">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Ingénierie IA</h3>
+                    <p>Solutions d'intelligence artificielle sur mesure pour automatiser et optimiser vos processus</p>
+                    <button class="btn-service">En savoir plus</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crypto Trading Section -->
+    <section id="crypto" class="crypto-section">
+        <div class="container">
+            <h2>Trading Crypto</h2>
+            <div class="crypto-dashboard">
+                <div class="market-overview">
+                    <h3>Aperçu du Marché</h3>
+                    <div class="crypto-list">
+                        <div class="crypto-item">
+                            <span class="crypto-name">Bitcoin (BTC)</span>
+                            <span class="crypto-price">$43,250.00</span>
+                            <span class="crypto-change positive">+2.5%</span>
+                        </div>
+                        <div class="crypto-item">
+                            <span class="crypto-name">Ethereum (ETH)</span>
+                            <span class="crypto-price">$2,580.00</span>
+                            <span class="crypto-change negative">-1.2%</span>
+                        </div>
+                        <div class="crypto-item">
+                            <span class="crypto-name">Cardano (ADA)</span>
+                            <span class="crypto-price">$0.45</span>
+                            <span class="crypto-change positive">+5.8%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trading-panel">
+                    <h3>Panel de Trading</h3>
+                    <div class="trading-form">
+                        <select id="cryptoSelect">
+                            <option value="BTC">Bitcoin (BTC)</option>
+                            <option value="ETH">Ethereum (ETH)</option>
+                            <option value="ADA">Cardano (ADA)</option>
+                        </select>
+                        <input type="number" id="amount" placeholder="Montant en USD">
+                        <select id="orderType">
+                            <option value="buy">Acheter</option>
+                            <option value="sell">Vendre</option>
+                        </select>
+                        <button class="btn-trade" onclick="executeTrade()">Exécuter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="jeux" class="games-section">
+        <div class="container">
+            <h2>Nos Jeux</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Cryptocurrency Tycoon</h3>
+                    <p>Jeu de simulation de trading crypto</p>
+                    <div class="game-price">29.99€</div>
+                    <button class="btn-buy" onclick="buyGame('crypto-tycoon')">Acheter</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3>IA Battle</h3>
+                    <p>Combat stratégique contre l'IA</p>
+                    <div class="game-price">19.99€</div>
+                    <button class="btn-buy" onclick="buyGame('ia-battle')">Acheter</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Logo Designer</h3>
+                    <p>Créez et vendez vos designs</p>
+                    <div class="game-price">39.99€</div>
+                    <button class="btn-buy" onclick="buyGame('logo-designer')">Acheter</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Section -->
+    <section id="design" class="design-section">
+        <div class="container">
+            <h2>Design de Logos</h2>
+            <div class="design-showcase">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="logo-preview">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Logo TechCorp</h4>
+                        <p>Entreprise technologique</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="logo-preview">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h4>Café Artisanal</h4>
+                        <p>Brasserie locale</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="logo-preview">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>HealthCare Plus</h4>
+                        <p>Centre médical</p>
+                    </div>
+                </div>
+                <div class="design-form">
+                    <h3>Commander un Logo</h3>
+                    <form id="logoForm">
+                        <input type="text" id="companyName" placeholder="Nom de votre entreprise" required>
+                        <select id="industry" required>
+                            <option value="">Secteur d'activité</option>
+                            <option value="tech">Technologie</option>
+                            <option value="health">Santé</option>
+                            <option value="finance">Finance</option>
+                            <option value="education">Éducation</option>
+                            <option value="other">Autre</option>
+                        </select>
+                        <textarea id="description" placeholder="Décrivez votre vision"></textarea>
+                        <button type="submit" class="btn-design">Commander</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Section -->
+    <section id="ia" class="ai-section">
+        <div class="container">
+            <h2>Ingénierie IA</h2>
+            <div class="ai-services">
+                <div class="ai-service">
+                    <div class="ai-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Modèles prédictifs et analyse de données avancée</p>
+                    <ul>
+                        <li>Analyse prédictive</li>
+                        <li>Classification automatique</li>
+                        <li>Recommandations personnalisées</li>
+                    </ul>
+                </div>
+                <div class="ai-service">
+                    <div class="ai-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Traitement du Langage</h3>
+                    <p>Chatbots et assistants virtuels intelligents</p>
+                    <ul>
+                        <li>Chatbots multilingues</li>
+                        <li>Analyse de sentiment</li>
+                        <li>Traduction automatique</li>
+                    </ul>
+                </div>
+                <div class="ai-service">
+                    <div class="ai-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Vision par Ordinateur</h3>
+                    <p>Reconnaissance d'images et détection d'objets</p>
+                    <ul>
+                        <li>Reconnaissance faciale</li>
+                        <li>Détection d'objets</li>
+                        <li>Analyse médicale</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ai-contact">
+                <h3>Demande de Consultation IA</h3>
+                <form id="aiForm">
+                    <input type="text" id="projectName" placeholder="Nom du projet" required>
+                    <select id="aiService" required>
+                        <option value="">Service IA souhaité</option>
+                        <option value="ml">Machine Learning</option>
+                        <option value="nlp">Traitement du Langage</option>
+                        <option value="cv">Vision par Ordinateur</option>
+                        <option value="custom">Solution Personnalisée</option>
+                    </select>
+                    <textarea id="aiDescription" placeholder="Décrivez votre projet IA"></textarea>
+                    <button type="submit" class="btn-ai">Demander une Consultation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Téléphones</h4>
+                            <p>+237 671 808 280</p>
+                            <p>+237 691 434 692</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>fouazemiguel8@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-credit-card"></i>
+                        <div>
+                            <h4>Paiements Acceptés</h4>
+                            <p>Virement bancaire, Crypto, Mobile Money</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" id="name" placeholder="Votre nom" required>
+                        <input type="email" id="email" placeholder="Votre email" required>
+                        <select id="service" required>
+                            <option value="">Service d'intérêt</option>
+                            <option value="crypto">Trading Crypto</option>
+                            <option value="games">Création de Jeux</option>
+                            <option value="design">Design de Logos</option>
+                            <option value="ai">Ingénierie IA</option>
+                        </select>
+                        <textarea id="message" placeholder="Votre message" required></textarea>
+                        <button type="submit" class="btn-contact">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Connexion</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Mot de passe" required>
+                <button type="submit" class="btn-login">Se connecter</button>
+            </form>
+            <p>Pas de compte ? <a href="#" onclick="showRegister()">S'inscrire</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Inscription</h2>
+            <form id="registerForm">
+                <input type="text" id="registerName" placeholder="Nom complet" required>
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <input type="password" id="registerPassword" placeholder="Mot de passe" required>
+                <input type="password" id="registerConfirmPassword" placeholder="Confirmer le mot de passe" required>
+                <select id="userType" required>
+                    <option value="">Type de compte</option>
+                    <option value="client">Client</option>
+                    <option value="trader">Trader</option>
+                    <option value="admin">Administrateur</option>
+                </select>
+                <button type="submit" class="btn-register">S'inscrire</button>
+            </form>
+            <p>Déjà un compte ? <a href="#" onclick="showLogin()">Se connecter</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Fouaze Entreprise</h3>
+                    <p>Votre partenaire technologique de confiance</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#crypto">Trading Crypto</a></li>
+                        <li><a href="#jeux">Création de Jeux</a></li>
+                        <li><a href="#design">Design de Logos</a></li>
+                        <li><a href="#ia">Ingénierie IA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" onclick="showHelp()">Aide</a></li>
+                        <li><a href="#" onclick="showPrivacy()">Confidentialité</a></li>
+                        <li><a href="#" onclick="showTerms()">Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Sécurité</h4>
+                    <p>Toutes les transactions sont sécurisées avec un cryptage SSL 256-bit</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Fouaze Entreprise. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
